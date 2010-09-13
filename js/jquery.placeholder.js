@@ -26,7 +26,9 @@
 			// this is a very hackish way to append to the event bubble
 			$item.parents("form:first").one('submit', function(event) {
 				$(this).submit(function(){
-					setHolder($item, options);
+    				if($item.val() == '') {
+    					setHolder($item, options);
+    				}
 				});
 				event.stopImmediatePropagation();
 				$(this).trigger('submit');
